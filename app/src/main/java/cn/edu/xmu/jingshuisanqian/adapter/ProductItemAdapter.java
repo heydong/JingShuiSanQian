@@ -3,7 +3,6 @@ package cn.edu.xmu.jingshuisanqian.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,24 +16,28 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.edu.xmu.jingshuisanqian.R;
 import cn.edu.xmu.jingshuisanqian.entity.Product;
-import cn.edu.xmu.jingshuisanqian.ui.ProductDetailActivity;
+import cn.edu.xmu.jingshuisanqian.ui.activity.ArtDetailActivity;
+import cn.edu.xmu.jingshuisanqian.ui.fragment.HomeFragment;
+import cn.edu.xmu.jingshuisanqian.ui.activity.ProductDetailActivity;
 import cn.edu.xmu.jingshuisanqian.utils.OnMoveAndSwipedListener;
 
 /**
  * Created by hd_chen on 2016/8/31.
  */
 public class ProductItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements OnMoveAndSwipedListener {
+
     List<Product> productList;
     Context context;
-
+    int type;
 
     public ProductItemAdapter() {
 
     }
 
-    public ProductItemAdapter(List<Product> productList, Context context) {
+    public ProductItemAdapter(List<Product> productList, Context context, int type) {
         this.productList = productList;
         this.context = context;
+        this.type = type;
     }
 
     @Override
@@ -44,9 +47,15 @@ public class ProductItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 new MyItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Intent intent = new Intent(context, ProductDetailActivity.class);
-                        intent.putExtra("title", productList.get(position).getTitle());
-                        context.startActivity(intent);
+                        if (type == HomeFragment.PRODUCT) {
+                            Intent intent = new Intent(context, ProductDetailActivity.class);
+                            intent.putExtra("title", productList.get(position).getTitle());
+                            context.startActivity(intent);
+                        } else if (type == HomeFragment.ART) {
+                            Intent intent = new Intent(context, ArtDetailActivity.class);
+                            intent.putExtra("title", productList.get(position).getTitle());
+                            context.startActivity(intent);
+                        }
                     }
                 });
     }

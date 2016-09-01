@@ -1,6 +1,5 @@
-package cn.edu.xmu.jingshuisanqian.ui;
+package cn.edu.xmu.jingshuisanqian.ui.fragment;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,6 +21,7 @@ import butterknife.ButterKnife;
 import cn.edu.xmu.jingshuisanqian.R;
 import cn.edu.xmu.jingshuisanqian.adapter.ProductItemAdapter;
 import cn.edu.xmu.jingshuisanqian.entity.Product;
+import cn.edu.xmu.jingshuisanqian.ui.activity.MainActivity;
 import cn.edu.xmu.jingshuisanqian.utils.SimpleItemTouchHelperCallback;
 
 /**
@@ -61,7 +61,13 @@ public class HomeFragment extends Fragment {
         pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new GetProductTask().execute();
+                HomeFragment homeFragment = HomeFragment.newInstance(type);
+                if (type == PRODUCT) {
+                    ((MainActivity) getActivity()).changeTab0(homeFragment);
+                } else if (type == ART) {
+                    ((MainActivity) getActivity()).changeTab1(homeFragment);
+                }
+//                new GetProductTask().execute();
             }
         });
         pullRefreshLayout.setRefreshStyle(PullRefreshLayout.STYLE_RING);
@@ -80,7 +86,7 @@ public class HomeFragment extends Fragment {
             super.onPostExecute(aBoolean);
             if (aBoolean) {
                 pullRefreshLayout.setRefreshing(false);
-                ProductItemAdapter productItemAdapter = new ProductItemAdapter(productList, getActivity());
+                ProductItemAdapter productItemAdapter = new ProductItemAdapter(productList, getActivity(), type);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(productItemAdapter);
                 ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(productItemAdapter);
@@ -94,12 +100,13 @@ public class HomeFragment extends Fragment {
             productList = new ArrayList<>();
             Product product;
             if (type == PRODUCT) {
-                product = new Product("茶品", "2016.8.31","煮茶论道，快意人生");
+                product = new Product("茶品", "2016.8.31", "煮茶论道，快意人生");
             } else if (type == ART) {
-                product = new Product("茶艺", "2016.8.31","煮茶论道，快意人生");
+                product = new Product("茶艺", "2016.8.31", "煮茶论道，快意人生");
             } else {
-                product = new Product("茶品/茶艺", "2016.8.31","煮茶论道，快意人生");
+                product = new Product("茶品/茶艺", "2016.8.31", "煮茶论道，快意人生");
             }
+            productList.clear();
             for (int i = 0; i < 7; i++) {
                 productList.add(product);
             }

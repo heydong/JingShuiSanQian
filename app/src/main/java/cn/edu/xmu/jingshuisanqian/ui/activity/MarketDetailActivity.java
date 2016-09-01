@@ -1,10 +1,8 @@
-package cn.edu.xmu.jingshuisanqian.ui;
+package cn.edu.xmu.jingshuisanqian.ui.activity;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,31 +11,25 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.edu.xmu.jingshuisanqian.R;
-import me.imid.swipebacklayout.lib.SwipeBackLayout;
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
-/**
- * Created by hd_chen on 2016/8/31.
- */
-public class ProductDetailActivity extends AppCompatActivity {
+public class MarketDetailActivity extends AppCompatActivity {
+
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.product_detail);
+        setContentView(R.layout.activity_market_detail);
         ButterKnife.bind(this);
-        toolbar.setTitle(getIntent().getStringExtra("title"));
         setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        setTitle("商品详情");
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
-//        SwipeBackLayout mSwipeBackLayout = getSwipeBackLayout();
-//        mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
     }
 
     @Override
@@ -50,7 +42,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id){
+        switch (id) {
             case R.id.share_button:
                 Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
                 break;

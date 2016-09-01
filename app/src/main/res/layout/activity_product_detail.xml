@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activity.ProductDetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="煮茶论道，快意人生"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2016.8.31"
+                    android:textColor="@color/gray" />
+
+                <TextView
+                    android:id="@+id/author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="沈边吉"
+                    android:textColor="@color/gray" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/tea_image" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=" 爱茶，从最初的兴趣到现在的不可自拔。昨日突感不适，朋友说暂不要喝茶，先养病，我怎能忍得住。借东坡先生一句，何须魏帝一丸药，且尽卢仝七碗茶。茶既是因药用价值被人类发现，病饮又何妨？固执如我，又如何听得了劝，头上顶着红红的十字印，便煮起茶来。
+这浓厚的茶汤入口，即出一身细汗，果然舒服了不少。我称不上茶人，充其量只是爱茶者，《爱茶者说》，茶人精神，“和”为核心。眼下物欲横流，人人心浮气躁，跟风饮茶，糟蹋了老祖宗的精华。为减肥者，为美容者，为长寿者，又有几人能静心听茶？茶的声音在高古时代极尽美好，现下却几尽消亡。
+翻滚的茶汤，有如我起伏的人生。喜怒哀乐，尽在其中。有句话说的好，你心里容得下多少人，就赢得多少人。茶人讲和，和而容，容而得。回想多年至今，我鲜少与人争执，也没有什么人让我记恨在心，人生短短数十载，哪里有多少时间容我们去计较，与人修好，心安理得。当你在帮别人搬起石头的时候，其实就在为自己铺路。尽管一路艰辛而缓慢，但我未曾退缩过。只要损失的起，无所惧亦无所求。这茶，加奶，加蜜，加姜，任何调料进去，便是另一种口味，但终归是茶。" />
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>
