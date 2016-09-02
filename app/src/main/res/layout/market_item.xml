@@ -45,7 +45,8 @@
                 android:layout_centerVertical="true"
                 android:text="￥568.00"
                 android:textColor="@color/md_material_red_500"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/price_before"

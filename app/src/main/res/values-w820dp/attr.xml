@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="borderRadius" format="dimension" />
+    <attr name="imageType">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" />
+        <attr name="imageType" />
+    </declare-styleable>
+
+    <!--每个item纵向间距-->
+    <attr name="verticalSpacing" format="dimension" />
+    <!-- 每个item横向间距-->
+    <attr name="horizontalSpacing" format="dimension" />
+
+    <declare-styleable name="FlowLayout">
+        <attr name="verticalSpacing" />
+        <attr name="horizontalSpacing" />
+    </declare-styleable>
+</resources>
